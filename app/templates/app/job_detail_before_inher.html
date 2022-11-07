@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewpoint" content = "width=device-width, initial-scale = 1.0">
+    <link rel = "stylesheet" href="{% static 'app/style.css' %}" />
+    {% comment %} <link>
+        href=""
+        rel="stylesheet"
+    </link> {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    {% comment %} To use the font family" font-family: 'Mulish', sans-serif; {% endcomment %}
+    <title>View job</title>
+</head>
+    {% comment %} <a href="{% url 'jobs_home' %}">
+        <h4>Home<h4> </a>{% endcomment %}
+<body>
+    <header>
+        <nav>
+            <div class = "container">
+                <div class = "logo">
+                    <img src= "{% static 'app/logo.svg' %}" alt = "logo" />
+                </div>
+                <div class="links">
+            {% comment %} <a href="index.html" onclick="menu()">Home</a> {% endcomment %}
+            {% comment %} at the urls.py the home page has as its url 'jobs_home' {% endcomment %}
+                    <a href="{% url 'jobs_home' %}">Home</a>
+                </div>
+                <span class = "material-icons menu" onclick="menu()"> menu
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class ="container">
+            <div class = "view-post">
+                <h1 class = "jobtitle">{{ job.title}}</h1>
+                <p class= "location it">Location: <span>{{job.location.city}}</span><p>
+                <p class= "status it">Type: <span>{{job.type}}</span><p>
+                <p class= "budget it">Salary: <span>{{job.salary}}</span><p>
+                <div class = "desc">
+                    <p class="details">{{job.description}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src = "{% static 'app/app.js' %}"></script>
+</body>
+</html>

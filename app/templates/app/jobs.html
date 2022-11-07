@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewpoint" content = "width=device-width, initial-scale = 1.0">
+    <link rel = "stylesheet" href="{% static 'app/style.css' %}" />
+    </link> {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <title>List of jobs</title>
+</head>
+<body>
+<div class="navbar">
+</div>
+<header>
+    <nav>
+        <div class = "container">
+            <div class = "logo">
+                <img src= "{% static 'app/logo.svg' %}" alt = "logo" />
+            </div>
+            <div class="links">
+                <a href="{% url 'jobs_home' %}">Home</a>
+            </div>
+            <span class = "material-icons menu" onclick="menu()"> menu
+        </div>
+    </nav>
+</header>
+<section>
+
+<div class="body-content">
+    {% block content %}
+    <ul class="body-head">
+    {% for item in job_titles %}
+        <li>{{ item }}</li>
+    {% endfor %}    
+</ul>
+    {% endblock %} 
+    <hr/>
+    <footer>
+        <p>&copy; 2022</p>
+    </footer>
+</div>
+</section>
+</body>
+</html>

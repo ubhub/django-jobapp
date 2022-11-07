@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block jobs %}{% endblock %}</title>
+    {% comment %} {% load static %} {% endcomment %}
+    <link rel="stylesheet" type = "text/css" href="./site.css"/>
+{% comment %} href="{% static '/app/static/app/site.css' %}" {% endcomment %}
+</head>
+<body>
+<div class="navbar">
+    {% comment %} <a href="{% url 'jobs' %}" class ="navbar-brand">Home</a> {% endcomment %}
+    <a href="{% url 'about' %}" class ="navbar-item">About</a>
+</div>
+
+<div class="body-content">
+    {% block content %}
+    <ul class="body-head">
+    {% for item in job_titles %}
+        <li>{{ item }}</li>
+    {% endfor %}    
+</ul>
+    {% endblock %} 
+    <hr/>
+    <footer>
+        <p>&copy; 2022</p>
+    </footer>
+</div>
+</body>
+</html>

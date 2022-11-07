@@ -1,0 +1,36 @@
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from subscribe.forms import SubscribeForm
+from subscribe.models import Subscribe
+
+# Create your views here.
+def subscribe(request):
+    name_data = {
+        'first_name': 'John'
+    }
+    # subscribe_form = SubscribeForm(initial=name_data)
+    subscribe_form = SubscribeForm()
+    email_error_empty = ""
+    #  The form is a bounded form--bounded to the data-- at subscribe_form = SubscribeForm()
+    #  the form, if refreshed, will keep the data entered even if not saved
+    if request.POST:
+        subscribe_form = SubscribeForm(request.POST)
+        if subscribe_form.is_valid():
+            print("valid form")
+            print(subscribe_form.cleaned_data)
+            email=subscribe_form.cleaned_data['email']
+            first_name=subscribe_form.cleaned_data['first_name']
+            last_name=subscribe_form.cleaned_data['last_name']
+            subscribe = Subscribe(first_name=first_name, last_name=last_name, email=email)
+            subscribe.save()
+            name = first_name + '$' + email
+            print('******\n' , name)
+            return redirect(reverse('thank_you', args=[name]))
+    context={"form": subscribe_form, "email_error_empty":email_error_empty}
+    return render(request, "subscribe/subscribe.html", context)
+
+def thank_you(request, name):
+    print("name passed is ", name)
+    name = name.replace('$', ' ')
+    context = {"name": name}
+    return render(request, "subscribe/thank_you.html", context)

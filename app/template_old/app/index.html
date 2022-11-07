@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block jobs %}{% endblock %}</title>
+    {% comment %} {% load static %} {% endcomment %}
+    {% comment %} <link rel="stylesheet" type = "text/css" href="./site.css"/> {% endcomment %}
+{% comment %} href="{% static '/app/static/app/site.css' %}" {% endcomment %}
+</head>
+<body>
+
+<div >
+    {% block content %}
+    <ul class="body-head">
+    {% for job in jobs %}
+        <li>
+            {% comment %} <a href = "job/{{ forloop.counter0 }}">{{ job }}</a> {% endcomment %}
+            <a href = "{% url 'job_detail' job.id %}">
+                {{ job }}
+            </a>
+        </li>
+    {% endfor %}    
+</ul>
+    {% endblock %} 
+    <hr/>
+    <footer>
+        <p>&copy; 2022-3</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    {% comment %} {% load static %} {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe/main.css' %}"/> 
+    <title>Subscribe form</title>
+    {% comment %} "{% static 'site.css' %}" {% endcomment %}
+</head>
+<body>
+<h2>Subscriber</h2>
+<img src="" alt="picture">
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        {% for field in form %}
+        <div class="subscribe_field">
+            {{field.errors}}
+            {{field.label_tag}}
+            {% comment %} <label for = "{{field.id_for_label}}">
+                {{field.label}}
+            </label> {% endcomment %}
+            {{field}}
+        </div>
+        {% endfor %}
+        {% comment %} <div class="subscribe_field">
+            {{ form.first_name.errors}}
+            <label for = "{{form.first_name.id_for_label}}">{{form.first_name.label}}</label>
+            {{ form.first_name }}
+        </div>
+            {{ form.last_name.errors}}
+            <label for = "{{form.last_name.id_for_label}}">{{form.last_name.label}}</label>
+            {{ form.last_name }}
+        <div class="subscribe_field">
+            {{ form.email.errors}}
+            <label for = "{{form.email.id_for_label}}">{{form.email.label}}</label>
+            {{ form.email }}
+        </div> {% endcomment %}
+    <input type = "submit" value = "Submit">
+    </fieldset>
+    <button onclick="popup()">Click me</button>
+    <script src="{% static 'subscribe/main.js' %}"></script>
+</form>
+
+</body>
+</html>

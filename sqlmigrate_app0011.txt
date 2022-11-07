@@ -1,0 +1,18 @@
+BEGIN;
+--
+-- Add field type to jobpost
+--
+CREATE TABLE "new__app_jobpost" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "type" varchar(200) NOT NULL, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "description" varchar(200) NOT NULL, "salary" integer NOT NULL, "slug" varchar(40) NULL UNIQUE, "expiry" date NULL, "location_id" bigint NULL UNIQUE REFERENCES "app_location" ("id") DEFERRABLE INITIALLY DEFERRED, "author_id" bigint NULL REFERENCES "app_author" ("id") DEFERRABLE INITIALLY DEFERRED);
+INSERT INTO "new__app_jobpost" ("id", "title", "date", "description", "salary", "slug", "expiry", "location_id", "author_id", "type") SELECT "id", "title", "date", "description", "salary", "slug", "expiry", "location_id", "author_id", 'F/T' FROM "app_jobpost";
+DROP TABLE "app_jobpost";
+ALTER TABLE "new__app_jobpost" RENAME TO "app_jobpost";
+CREATE INDEX "app_jobpost_author_id_77f4f482" ON "app_jobpost" ("author_id");
+--
+-- Alter field description on jobpost
+--
+CREATE TABLE "new__app_jobpost" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(200) NOT NULL, "date" datetime NOT NULL, "salary" integer NOT NULL, "slug" varchar(40) NULL UNIQUE, "expiry" date NULL, "location_id" bigint NULL UNIQUE REFERENCES "app_location" ("id") DEFERRABLE INITIALLY DEFERRED, "author_id" bigint NULL REFERENCES "app_author" ("id") DEFERRABLE INITIALLY DEFERRED, "type" varchar(200) NOT NULL, "description" text NOT NULL);
+INSERT INTO "new__app_jobpost" ("id", "title", "date", "salary", "slug", "expiry", "location_id", "author_id", "type", "description") SELECT "id", "title", "date", "salary", "slug", "expiry", "location_id", "author_id", "type", "description" FROM "app_jobpost";
+DROP TABLE "app_jobpost";
+ALTER TABLE "new__app_jobpost" RENAME TO "app_jobpost";
+CREATE INDEX "app_jobpost_author_id_77f4f482" ON "app_jobpost" ("author_id");
+COMMIT;

@@ -1,0 +1,36 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+</head>
+<body> -->
+<h1>Hey there 
+{% if is_authenticated %}
+    {{addressee}}
+{% endif %}
+</h1>
+<h3>list 1 : </h3>
+
+{% for item in first_list %}
+    <p>{{item}}</p>
+    {% for i in fruit %}
+        {{ i }} 
+    {% endfor %}
+    {% for k, v in fruit.items %}
+        {{ k }}
+        {{ v }}
+    {% endfor %} 
+{% endfor %}
+{% comment %} see django template filters doc version 4 built-in filters in rhs bar {% endcomment %}
+<p>Length of list_first: {{first_list | length }}
+<p>last item of list_first: {{first_list | last }}
+{% first_list|length as len_of_list %}
+<p>Length of first list is {{ len_of_list }}
+<p>***<br>length of list is {{len_list}}
+{% comment %} {% first_list | length as len_list1 %} {% endcomment %} 
+{% if first_list|length > 1 %}
+    <p>length of list_first is greater than or equal to 2: it's {{first_list | length }}
+{% endif %}
