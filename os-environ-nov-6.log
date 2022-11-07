@@ -1,0 +1,136 @@
+EXAMPLES OF ALLOWED_HOSTS configuration
+https://zerotobyte.com/use-django-allowed-hosts-to-prevent-security-threats/#:~:text=Use%20Django%20ALLOWED_HOSTS%20to%20Prevent%20Security%20Threats%201,related%20to%20host%20validation.%20...%204%20Conclusion%20
+
+>>> file = open('os-environ-nov-6.log', 'w')
+>>> for k,v in os.environ.items():
+...     print(f"{k}:{v}", file = file)
+...
+>>> file.close()
+*** eg of getting a key: value
+https://www.geeksforgeeks.org/python-os-getenv-method/
+import os
+  
+		# Get the value of 'HOME'
+		# environment variable
+		key = 'HOME'
+		value = os.getenv(key)
+		  
+		# Print the value of 'HOME'
+		# environment variable
+		print("Value of 'HOME' environment variable :", value) 
+		  
+		# Get the value of 'JAVA_HOME'
+		# environment variable
+		key = 'JAVA_HOME'
+		value = os.getenv(key)
+		  
+		# Print the value of 'JAVA_HOME'
+		# environment variable
+		print("Value of 'JAVA_HOME' environment variable :", value) 
+
+
+WHEN VALUE FOUND TO BE NONE
+		import os
+		  
+		# Get the value of 'home'
+		# environment variable
+		key = 'home'
+		value = os.getenv(key)
+		  
+		# Print the value of 'home'
+		# environment variable
+		print("Value of 'home' environment variable :", value)
+		Output:
+		Value of 'home' environment variable : None
+
+ALTERNATIVE DISPLAY OF NO VALUE FOUND
+
+		Code #3: Explicitly specifying default parameter
+
+		# Python program to explain os.getenv() method 
+			
+		# importing os module 
+		import os
+		  
+		# Get the value of 'home'
+		# environment variable
+		key = 'home'
+		value = os.getenv(key, "value does not exist")
+		  
+		# Print the value of 'home'
+		# environment variable
+		print("Value of 'home' environment variable :", value) 
+		Output:
+		Value of 'home' environment variable : value does not exist
+
+SET ENVIRONMENT VARIABLE
+		import os
+		 
+		env_var = input('Please enter environment variable name:\n')
+		 
+		env_var_value = input('Please enter environment variable value:\n')
+		 
+		os.environ[env_var] = env_var_value
+		 
+		print(f'{env_var}={os.environ[env_var]} environment variable has been set.')
+**********
+If the environment variable already exists, it will be overwritten by the new value. The environment variable 
+will be set only for the current session of the Python interpreter. If you want to change to be permanent, then 
+you will have to edit the user profile file in the Python program.
+*******
+Python variables https://tutorialdeep.com/python/create-variables-in-python/  
+
+SHELL:/bin/bash
+GDK_DPI_SCALE:1.25000000000000000000
+NVM_INC:/home/ub268/.nvm/versions/node/v16.13.2/include/node
+GTK_IM_MODULE:ibus
+WSL_DISTRO_NAME:WLinux
+WT_SESSION:73f00966-f35f-4416-8f44-92ea5d2cb43f
+WSL2:3
+XMODIFIERS:@im=ibus
+HOMEBREW_PREFIX:/home/linuxbrew/.linuxbrew
+NO_AT_BRIDGE:1
+XCURSOR_SIZE:16
+NAME:pengwinenterprise8
+PWD:/home/ub268/mypy_jobapp
+LOGNAME:ub268
+MANPATH:/home/ub268/.nvm/versions/node/v16.13.2/share/man:/home/linuxbrew/.linuxbrew/share/man:
+QT_STYLE_OVERRIDE:Breeze
+HOME:/home/ub268
+LANG:en_US.UTF-8
+WSL_INTEROP:/run/WSL/1686_interop
+LS_COLORS:rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+VIRTUAL_ENV:/home/ub268/mypy_jobapp/.venv
+WAYLAND_DISPLAY:wayland-0
+DONT_PROMPT_WSL_INSTALL:1
+M2_HOME:/usr/share/maven
+XIM:ibus
+INFOPATH:/home/linuxbrew/.linuxbrew/share/info:
+NVM_DIR:/home/ub268/.nvm
+XIM_PROGRAM:/usr/bin/ibus
+TERM:xterm-256color
+USER:ub268
+HOMEBREW_CELLAR:/home/linuxbrew/.linuxbrew/Cellar
+DISPLAY::0
+SHLVL:1
+NVM_CD_FLAGS:
+QT_IM_MODULE:ibus
+HOMEBREW_REPOSITORY:/home/linuxbrew/.linuxbrew/Homebrew
+XDG_RUNTIME_DIR:/mnt/wslg/runtime-dir
+PS1:(.venv) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ 
+WSLENV:WT_SESSION::WT_PROFILE_ID
+GDK_BACKEND:x11
+WIN_HOME:/mnt/c/Users/User
+PATH:/home/ub268/mypy_jobapp/.venv/bin:/home/ub268/.local/bin:/home/ub268/.nvm/versions/node/v16.13.2/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Java/jdk-17.0.2/bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 222.2889.11/bin:/home/ub268/.dotnet/tools:/usr/lib/jvm/java-17-openjdk-amd64/bin
+GDK_SCALE:1
+DefaultIMModule:ibus
+DBUS_SESSION_BUS_ADDRESS:unix:path=/tmp/dbus-Rhrx4jojsl,guid=dd024471300698d3cc4c11c463682b83
+NVM_BIN:/home/ub268/.nvm/versions/node/v16.13.2/bin
+HOSTTYPE:x86_64
+QT_SCALE_FACTOR:1.25
+PULSE_SERVER:/mnt/wslg/PulseServer
+WT_PROFILE_ID:{7f586916-8357-53d4-bb2b-ca96f639898a}
+OLDPWD:/home/ub268/mypy_jobapp/.venv
+_:/home/ub268/mypy_jobapp/.venv/bin/python
+DJANGO_SETTINGS_MODULE:jobapp.settings
+TZ:UTC
